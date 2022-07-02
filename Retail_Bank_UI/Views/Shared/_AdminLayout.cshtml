@@ -37,7 +37,7 @@
 
                 .navbar {
                     padding: 15px 10px;
-                    background: #fff;
+                    background: pink;
                     border: none;
                     border-radius: 0;
                     margin-bottom: 40px;
@@ -69,11 +69,17 @@
 
         #sidebar {
             min-width: 250px;
-            max-width: 250px;
-            background: #292a2c;
+            padding-left0px;
+            background: #4d4d4d;
             color: #fff;
             transition: all 0.3s;
+
         }
+
+        ul li{
+            padding-left: 10px;
+        }
+
 
                     #sidebar.active {
                         margin-left: -250px;
@@ -168,6 +174,19 @@
             padding: 20px;
             min-height: 100vh;
             transition: all 0.3s;
+            background-color: #f4cbc2;
+            
+        }
+
+             /* ---------------------------------------------------
+            TABLE HEADER STYLE
+        ----------------------------------------------------- */
+        thead,td{
+            text-align:center;
+        }
+
+        table td:hover{
+            color:darkred;
         }
     </style>
 </head>
@@ -179,7 +198,8 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p>Retail Banking System</p>
+
+                <p id="retail">Retail Banking System</p>
                 <li>
                     <a asp-area="" asp-controller="Admin" asp-action="Index">All Accounts</a>
                 </li>
@@ -188,37 +208,8 @@
                 </li>
                 <li>
 
-                <li>
-                    <a id="abc" onclick="searchAcc()">Display Account</a>
-                    <div style="display:none; position:relative; top:0.5rem; bottom:0.5rem" id="searchbyAcid">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search by Account ID">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a onclick="searchCustomer()">Display Customer</a>
-
-                    <div style="display:none; position:relative; top:0.5rem; bottom:0.5rem" id="searchbyCust">
-                        <form method="post" asp-route-CustomerId="9" asp-action="GetCustomerAccountDetails">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="CustomerId" placeholder="Search by Customer ID">
-                                
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-secondary">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                     
-                    </div>
-                </li>
+                
+               
 
                 <li>
                     <a asp-area="" asp-controller="TransactionView" asp-action="Deposit">Deposit</a>
@@ -259,7 +250,6 @@
         });
     </script>
     <script>
-        function searchAcc() {
 
             var b = document.getElementById("searchbyAcid");
             b.style.display = "none";
